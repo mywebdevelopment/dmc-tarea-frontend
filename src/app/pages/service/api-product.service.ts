@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { ProductEcommerceResponse } from '../Model/product/product-model';
+import { environment } from '../../../environment/environment ';
 
 interface InventoryStatus {
     label: string;
@@ -11,7 +12,7 @@ interface InventoryStatus {
 
 @Injectable()
 export class ApiProductService {
-    private readonly apiUrl = 'http://localhost:3000';
+    private readonly apiUrl = environment.backendUrl;
 
     status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
 
@@ -52,7 +53,7 @@ export class ApiProductService {
 
     getProducts() {
         return firstValueFrom(
-            this.http.get<ProductEcommerceResponse[]>(`${this.apiUrl}/api/v1/products`)
+            this.http.get<ProductEcommerceResponse[]>(this.apiUrl+environment.apiBackend.apiProduct)
           );
     }
 

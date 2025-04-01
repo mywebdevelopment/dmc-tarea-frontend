@@ -1,5 +1,5 @@
 export const environment = {
-    backendUrl:  "http://localhost:3000",//import.meta.env.BACKEND_URL,
+    backendUrl:  import.meta.env.BACKEND_URL,//import.meta.env.BACKEND_URL,
     apiBackend:{
         apiUser:"/api/v1/users",
         apiProduct:"/api/v1/products",
